@@ -19,6 +19,7 @@ public extension Optional {
     ///
     /// - Parameter defaultValue: default value to return if self is nil.
     /// - Returns: self if not nil or default value if nil.
+    //解包
     func unwrapped(or defaultValue: Wrapped) -> Wrapped {
         // http://www.russbishop.net/improving-optionals
         return self ?? defaultValue
@@ -97,6 +98,7 @@ public extension Optional {
 public extension Optional where Wrapped: Collection {
 
     /// SwifterSwift: Check if optional is nil or empty collection.
+    //是否为空
     var isNilOrEmpty: Bool {
         guard let collection = self else { return true }
         return collection.isEmpty

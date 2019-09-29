@@ -21,6 +21,7 @@ public extension Dictionary {
     ///
     /// - Parameter key: key to search for
     /// - Returns: true if key exists in dictionary.
+    //是否包含key
     func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
@@ -34,6 +35,7 @@ public extension Dictionary {
     ///        dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
+    //删除key
     mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         keys.forEach { removeValue(forKey: $0) }
     }
@@ -50,6 +52,7 @@ public extension Dictionary {
     ///
     /// - Parameter prettify: set true to prettify data (default is false).
     /// - Returns: optional JSON Data (if applicable).
+    //转data
     func jsonData(prettify: Bool = false) -> Data? {
         guard JSONSerialization.isValidJSONObject(self) else {
             return nil
@@ -83,6 +86,7 @@ public extension Dictionary {
     ///
     /// - Parameter prettify: set true to prettify string (default is false).
     /// - Returns: optional JSON String (if applicable).
+    //转String
     func jsonString(prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else { return nil }
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
@@ -203,6 +207,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     /// - Returns: An dictionary with keys and values from both.
+    //字典相加
     static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
         rhs.forEach { result[$0] = $1 }

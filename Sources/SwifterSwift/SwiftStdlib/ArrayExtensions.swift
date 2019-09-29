@@ -74,6 +74,7 @@ public extension Array where Element: Equatable {
     @discardableResult
     mutating func removeDuplicates() -> [Element] {
         // Thanks to https://github.com/sairamkotha for improving the method
+        // 使用：reduce<Result>(into initialResult: Result, _ updateAccumulatingResult: (inout Result, Element) throws -> ()) rethrows -> Result
         self = reduce(into: [Element]()) {
             if !$0.contains($1) {
                 $0.append($1)

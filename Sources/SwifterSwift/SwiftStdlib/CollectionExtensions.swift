@@ -21,6 +21,7 @@ public extension Collection {
     ///        }
     ///
     /// - Parameter each: closure to run for each element.
+    //并行地为集合的每个元素执行“每个”闭包。
     func forEachInParallel(_ each: (Self.Element) -> Void) {
         let indicesArray = Array(indices)
         DispatchQueue.concurrentPerform(iterations: indicesArray.count) { (index) in
@@ -52,6 +53,7 @@ public extension Collection where Index == Int {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
+    //返回等于指定值的索引集合
     func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
         var indicies: [Index] = []
         for (index, value) in lazy.enumerated() where try condition(value) {
@@ -105,6 +107,7 @@ public extension Collection where Element == IntegerLiteralType, Index == Int {
     /// SwifterSwift: Average of all elements in array.
     ///
     /// - Returns: the average of the array's elements.
+    //平均值
     func average() -> Double {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
@@ -113,6 +116,7 @@ public extension Collection where Element == IntegerLiteralType, Index == Int {
 }
 
 // MARK: - Methods (FloatingPoint)
+//where:元素要遵守的条件
 public extension Collection where Element: FloatingPoint {
 
     /// SwifterSwift: Average of all elements in array.

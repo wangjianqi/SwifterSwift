@@ -19,6 +19,7 @@ public extension FloatingPoint {
     }
 
     /// SwifterSwift: Check if number is positive.
+    //正数
     var isPositive: Bool {
         return self > 0
     }

@@ -30,6 +30,7 @@ public extension String {
     ///
     ///		"SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
     ///
+    //base64转string
     var base64Decoded: String? {
         // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
         guard let decodedData = Data(base64Encoded: self) else { return nil }
@@ -42,6 +43,7 @@ public extension String {
     ///
     ///		"Hello World!".base64Encoded -> Optional("SGVsbG8gV29ybGQh")
     ///
+    //转base64
     var base64Encoded: String? {
         // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
         let plainData = data(using: .utf8)
@@ -77,6 +79,7 @@ public extension String {
     ///
     ///		"Hello 😀".containEmoji -> true
     ///
+    //是否包含表情
     var containEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         for scalar in unicodeScalars {
@@ -107,6 +110,7 @@ public extension String {
     ///		"Hello".firstCharacterAsString -> Optional("H")
     ///		"".firstCharacterAsString -> nil
     ///
+    //第一个字符
     var firstCharacterAsString: String? {
         guard let first = first else { return nil }
         return String(first)
@@ -117,6 +121,7 @@ public extension String {
     ///		"123abc".hasLetters -> true
     ///		"123".hasLetters -> false
     ///
+    //包含字母
     var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
@@ -126,6 +131,7 @@ public extension String {
     ///		"abcd".hasNumbers -> false
     ///		"123abc".hasNumbers -> true
     ///
+    //包含数字
     var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
@@ -318,6 +324,7 @@ public extension String {
     ///
     ///		"2007-06-29".date -> Optional(Date)
     ///
+    //转日期
     var date: Date? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let formatter = DateFormatter()
@@ -372,6 +379,7 @@ public extension String {
     ///		"https://google.com".url -> URL(string: "https://google.com")
     ///		"not url".url -> nil
     ///
+    //转url
     var url: URL? {
         return URL(string: self)
     }
@@ -382,6 +390,7 @@ public extension String {
     ///
     ///		"   hello  \n".trimmed -> "hello"
     ///
+    //去除空格和换行符
     var trimmed: String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
@@ -392,6 +401,7 @@ public extension String {
     ///
     ///		"it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
     ///
+    //解码
     var urlDecoded: String {
         return removingPercentEncoding ?? self
     }
@@ -402,6 +412,7 @@ public extension String {
     ///
     ///		"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
     ///
+    //编码
     var urlEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
@@ -412,6 +423,7 @@ public extension String {
     ///
     ///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
     ///
+    //删除空格和换行符
     var withoutSpacesAndNewLines: String {
         return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
     }
@@ -426,6 +438,7 @@ public extension String {
 
     #if os(iOS) || os(tvOS)
     /// SwifterSwift: Check if the given string spelled correctly
+    //拼写正确
     var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: utf16.count)
@@ -592,6 +605,7 @@ public extension String {
     ///		"Hello World!"[safe: 20] -> nil
     ///
     /// - Parameter index: index.
+    //取字符
     subscript(safe index: Int) -> Character? {
         guard index >= 0 && index < count else { return nil }
         return self[self.index(startIndex, offsetBy: index)]
@@ -626,6 +640,7 @@ public extension String {
     ///
     ///		"SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
     ///
+    //复制
     func copyToPasteboard() {
         #if os(iOS)
         UIPasteboard.general.string = self

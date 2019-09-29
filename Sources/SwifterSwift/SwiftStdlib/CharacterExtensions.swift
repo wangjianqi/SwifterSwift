@@ -96,6 +96,7 @@ public extension Character {
     ///   - lhs: character to repeat.
     ///   - rhs: number of times to repeat character.
     /// - Returns: string with character repeated n times.
+    //运算符重载
     static func * (lhs: Character, rhs: Int) -> String {
         guard rhs > 0 else { return "" }
         return String(repeating: String(lhs), count: rhs)

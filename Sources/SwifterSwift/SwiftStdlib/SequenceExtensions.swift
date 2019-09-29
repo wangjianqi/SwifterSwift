@@ -15,6 +15,7 @@ public extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
+    //所有匹配
     func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try !contains { try !condition($0) }
     }
@@ -70,6 +71,7 @@ public extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: number of times the condition evaluated to true.
+    //计算个数
     func count(where condition: (Element) throws -> Bool) rethrows -> Int {
         var count = 0
         for element in self where try condition(element) {
@@ -83,6 +85,7 @@ public extension Sequence {
     ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> //Order of print: 7,4,2,0
     ///
     /// - Parameter body: a closure that takes an element of the array as a parameter.
+    //逆序
     func forEachReversed(_ body: (Element) throws -> Void) rethrows {
         try reversed().forEach(body)
     }

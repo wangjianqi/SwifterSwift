@@ -30,6 +30,7 @@ public extension UILabel {
     }
 
     /// SwifterSwift: Required height for a label
+    //计算高度
     var requiredHeight: CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
