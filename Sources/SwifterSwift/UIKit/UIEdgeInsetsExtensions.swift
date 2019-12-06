@@ -18,7 +18,7 @@ public extension UIEdgeInsets {
     }
 
     /// SwifterSwift: Return the horizontal insets. The horizontal insets is composed by  left + right.
-    ///
+    ///左+右
     var horizontal: CGFloat {
         // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/UIEdgeInsets%2BExtensions.swift
         return left + right
@@ -50,6 +50,7 @@ public extension UIEdgeInsets {
     /// - Parameters:
     ///   - top: Offset to be applied in to the top edge.
     /// - Returns: UIEdgeInsets offset with given offset.
+    ///上边距加
     func insetBy(top: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: self.top + top, left: left, bottom: bottom, right: right)
     }
@@ -109,6 +110,7 @@ public extension UIEdgeInsets {
     ///   - lhs: The left-hand expression
     ///   - rhs: The right-hand expression
     /// - Returns: A new `UIEdgeInsets` instance where the values of `lhs` and `rhs` are added together.
+    ///边距相加
     static func + (_ lhs: UIEdgeInsets, _ rhs: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets(top: lhs.top + rhs.top,
                             left: lhs.left + rhs.left,

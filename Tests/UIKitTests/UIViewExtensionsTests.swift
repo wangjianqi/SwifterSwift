@@ -55,11 +55,13 @@ final class UIViewExtensionsTests: XCTestCase {
         let txtView = UITextField(frame: CGRect.zero)
         window.addSubview(txtView)
         txtView.becomeFirstResponder()
+        ///对象相等：===
         XCTAssertTrue(txtView.firstResponder() === txtView)
 
         // When a subview is firstResponder
         let superView = UIView()
         window.addSubview(superView)
+        ///第一响应者
         let subView = UITextField(frame: CGRect.zero)
         superView.addSubview(subView)
         subView.becomeFirstResponder()

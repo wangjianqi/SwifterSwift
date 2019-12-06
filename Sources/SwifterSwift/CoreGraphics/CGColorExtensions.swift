@@ -22,6 +22,7 @@ public extension CGColor {
 
     #if canImport(UIKit)
     /// SwifterSwift: UIColor.
+    ///获取颜色
     var uiColor: UIColor? {
         return UIColor(cgColor: self)
     }

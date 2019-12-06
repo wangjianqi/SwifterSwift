@@ -11,6 +11,11 @@ import XCTest
 
 final class IntExtensionsTests: XCTestCase {
 
+    func testYuan() {
+        XCTAssertEqual(Int64(2100).unitPennyToYuan, "21")
+        print(Int64(101))
+    }
+
     func testCountableRange() {
         XCTAssertEqual(10.countableRange, 0..<10)
     }

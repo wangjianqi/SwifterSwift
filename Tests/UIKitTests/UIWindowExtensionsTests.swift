@@ -27,7 +27,7 @@ final class UIWindowExtensionsTests: XCTestCase {
         window.switchRootViewController(to: tableViewController, animated: false)
         XCTAssertNotNil(window.rootViewController)
         XCTAssertEqual(window.rootViewController!, tableViewController)
-
+        ///预期
         let completionExpectation = expectation(description: "Completed")
 
         window.switchRootViewController(to: viewController, animated: true, duration: 0.75) {
@@ -35,7 +35,7 @@ final class UIWindowExtensionsTests: XCTestCase {
             XCTAssertNotNil(window.rootViewController)
             XCTAssertEqual(window.rootViewController!, viewController)
         }
-
+        ///超时时间是1s：注意：这里即使等于0.75也是会报错的
         waitForExpectations(timeout: 1, handler: nil)
     }
 

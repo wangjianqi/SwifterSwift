@@ -205,3 +205,9 @@ public prefix func ± (int: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return 0 ± int
 }
+
+extension Int64 {
+    var unitPennyToYuan: String {
+        return "\((self / 100))"
+    }
+}

@@ -40,6 +40,7 @@ public extension UIViewController {
     }
 
     /// SwifterSwift: Unassign as listener from all notifications.
+    /// 移除所有的观察者
     func removeNotificationsObserver() {
         NotificationCenter.default.removeObserver(self)
     }
@@ -83,6 +84,7 @@ public extension UIViewController {
     /// - Parameters:
     ///   - child: the view controller to add as a child
     ///   - containerView: the containerView for the child viewcontroller's root view.
+    //添加Child
     func addChildViewController(_ child: UIViewController, toContainerView containerView: UIView) {
         addChild(child)
         containerView.addSubview(child.view)

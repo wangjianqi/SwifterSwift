@@ -28,11 +28,14 @@ public extension UIView {
     ///
     /// - degrees: degrees.
     /// - radians: radians.
+    ///单位
     enum AngleUnit {
         /// degrees.
+        ///角度
         case degrees
 
         /// radians.
+        ///弧度
         case radians
     }
 
@@ -182,6 +185,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Get view's parent view controller
+    ///获取view的控制器
     var parentViewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
@@ -250,6 +254,7 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
+    ///设置圆角
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
@@ -268,6 +273,7 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5).
+    ///添加阴影
     func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
@@ -279,6 +285,7 @@ public extension UIView {
     /// SwifterSwift: Add array of subviews to view.
     ///
     /// - Parameter subviews: array of subviews to add to self.
+    ///批量添加子视图
     func addSubviews(_ subviews: [UIView]) {
         subviews.forEach { addSubview($0) }
     }
@@ -288,6 +295,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
+    ///动画显示出来
     func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
